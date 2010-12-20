@@ -6,6 +6,6 @@ class AssetsController < ApplicationController
   
   def create
     @asset = Asset.new(params[:asset])
-    
+    @asset.save
   end
 end
