@@ -10,6 +10,9 @@ gem 'rails', '3.0.3'
 gem "mongoid", "2.0.0.beta.20"
 gem "bson_ext", "1.1.5"
 
+# Controllers and resources
+gem 'inherited_resources', '1.1.2'
+
 # Views and templating
 gem 'haml'
 

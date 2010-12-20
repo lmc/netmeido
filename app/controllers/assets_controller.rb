@@ -1,11 +1,6 @@
 class AssetsController < ApplicationController
-  
-  def new
-    @asset = Asset.new
-  end
-  
-  def create
-    @asset = Asset.new(params[:asset])
-    @asset.save
+  inherit_resources
+  create! do |success,failure|
+    success.html { redirect_to asset_url(@asset) }
   end
 end

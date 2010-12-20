@@ -1,0 +1,6 @@
+%h1 Assets
+%ul
+  - collection.each do |asset|
+    %li[asset]
+      = link_to asset.id, asset
+      = html5_time(asset.created_at,:long)
