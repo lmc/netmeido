@@ -5,9 +5,16 @@ gem 'rails', '3.0.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+
+# Database interfaces
 gem "mongoid", "2.0.0.beta.20"
 gem "bson_ext", "1.1.5"
+
+# Views and templating
 gem 'haml'
+
+# Uploads and file/cloud management
+gem 'carrierwave' #uploads
 
 # Use unicorn as the web server
 # gem 'unicorn'

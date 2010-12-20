@@ -1,6 +1,9 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+require 'mongoid/railtie'
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
+require 'active_resource/railtie'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
@@ -40,8 +43,9 @@ module Cal2
     config.filter_parameters += [:password]
     
     config.generators do |generator|
-      generator.template_engine :haml
-      generator.test_framework :rspec, :fixture => true, :views => false
+      generator.orm                 :mongoid
+      generator.template_engine     :haml
+      generator.test_framework      :rspec, :fixture => true, :views => false
       generator.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
   end
