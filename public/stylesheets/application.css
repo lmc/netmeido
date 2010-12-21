@@ -1,0 +1,8 @@
+.html5_upload_area {
+  width: 100px;
+  height: 100px;
+  border: 2px #9F9 solid;
+}
+.html5_upload_area.drag_over {
+  border: 2px #99F solid;  
+}
