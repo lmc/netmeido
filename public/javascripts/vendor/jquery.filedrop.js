@@ -78,7 +78,7 @@
 		var dashdash = '--',
 			crlf = '\r\n',
 			builder = '';
-
+    //TODO: Add callback for custom data for each file
 		$.each(opts.data, function(i, val) {
 	    	if (typeof val === 'function') val = val();
 			builder += dashdash;

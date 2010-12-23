@@ -1,4 +1,6 @@
-= form_for(resource,:html => {:multipart => true}) do |f|
-  = f.file_field :file
-  = html5_upload_area
-  = f.submit
+= semantic_form_for(resource,:html => {:multipart => true, :class => 'bp'}) do |f|
+  = f.inputs do
+    = f.input :file, :label => 'Browse'
+    = f.input :file_url, :label => 'URL'
+    %li.file_drop.optional= html5_upload_area
+  = f.buttons
