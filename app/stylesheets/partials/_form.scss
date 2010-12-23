@@ -4,10 +4,6 @@
 
 form.bp {
   @include blueprint-form;
-}
-
-#new_asset {
-  @include column(10);
   
   fieldset {
     padding: 0;
@@ -16,7 +12,6 @@ form.bp {
   }
   fieldset.inputs {
     @include column(10);
-    height: 70px;
   }
   fieldset.buttons {
     @include column(10);
@@ -41,10 +36,21 @@ form.bp {
       padding-top: 0.3em;
     }
     
-    .file input, .string input {
+    li.file input, li.string input {
       @include column(5);
       margin: 0;
       padding: 4px;
+    }
+    
+    li.text {
+      height: 8em;
+      textarea {
+        height: 7em;
+      }
+    }
+    
+    li.text textarea, li.string input {
+      width: 275px;
     }
     
     .file_drop {
@@ -61,7 +67,18 @@ form.bp {
       }
     }
   }
+}
 
+#new_asset {
+  @include column(10);
+}
+
+.edit_asset {
+  @include column(10);
+  
+  fieldset.inputs {
+
+  }
 }
 
 .html5_upload_area {
