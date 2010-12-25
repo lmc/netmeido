@@ -23,6 +23,8 @@ gem 'formtastic'
 
 # Uploads and file/cloud management
 gem 'carrierwave' #uploads
+gem 'fog' #s3 access
+gem 'mini_magick'
 
 # Use unicorn as the web server
 # gem 'unicorn'
