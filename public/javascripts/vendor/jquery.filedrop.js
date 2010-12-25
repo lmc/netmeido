@@ -56,6 +56,7 @@
       files_count = 0,
       files;
     
+    var filedrop = this;
     opts = $.extend( {}, default_opts, options );
     
     this.get(0).addEventListener("drop", drop, true);
@@ -70,7 +71,7 @@
       opts.drop(e);
       files = e.dataTransfer.files;
       files_count = files.length;
-      //upload();
+      filedrop.upload();
       e.preventDefault();
       return false;
     }
@@ -142,8 +143,6 @@
       }
     }
 
-
-
     this.upload = function() {
       stop_loop = false;
       if (!files) {
@@ -163,6 +162,7 @@
         try {
           if (beforeEach(files[i]) != false) {
             if (i === files_count) return;
+            //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
             var reader = new FileReader(),
               max_file_size = 1048576 * opts.maxfilesize;
 
@@ -174,6 +174,7 @@
 
             reader.addEventListener("loadend", send, false);
             reader.readAsBinaryString(files[i]);
+            //^^^^^^^^^^^^^^^^^^^^^^^^^^^
           } else {
             filesRejected++;
           }
@@ -182,58 +183,58 @@
           return false;
         }
       }
-
-      function send(e) {
-        // Sometimes the index is not attached to the
-        // event object. Find it by size. Hack for sure.
-        if (e.target.index == undefined) {
-          e.target.index = getIndexBySize(e.total);
-        }
-
-        var xhr = new XMLHttpRequest(),
-          upload = xhr.upload,
-          file = files[e.target.index],
-          index = e.target.index,
-          start_time = new Date().getTime(),
-          boundary = '------multipartformboundary' + (new Date).getTime(),
-          builder;
-
-        newName = rename(file.name);
-        if (typeof newName === "string") {
-          builder = getBuilder(newName, e.target.result, boundary);
-        } else {
-          builder = getBuilder(file.name, e.target.result, boundary);
-        }
-
-        upload.index = index;
-        upload.file = file;
-        upload.downloadStartTime = start_time;
-        upload.currentStart = start_time;
-        upload.currentProgress = 0;
-        upload.startData = 0;
-        upload.addEventListener("progress", progress, false);
-
-        xhr.open("POST", opts.url, true);
-        xhr.setRequestHeader('content-type', 'multipart/form-data; boundary=' 
-            + boundary);
-
-        xhr.sendAsBinary(builder);  
-
-        opts.uploadStarted(index, file, files_count);  
-
-        xhr.onload = function() { 
-            if (xhr.responseText) {
-          var now = new Date().getTime(),
-              timeDiff = now - start_time,
-              result = opts.uploadFinished(index, file, jQuery.parseJSON(xhr.responseText), timeDiff);
-            filesDone++;
-            if (filesDone == files_count - filesRejected) {
-              afterAll();
-            }
-            if (result === false) stop_loop = true;
-            }
-        };
+    }
+    
+    function send(e) {
+      // Sometimes the index is not attached to the
+      // event object. Find it by size. Hack for sure.
+      if (e.target.index == undefined) {
+        e.target.index = getIndexBySize(e.total);
       }
+
+      var xhr = new XMLHttpRequest(),
+        upload = xhr.upload,
+        file = files[e.target.index],
+        index = e.target.index,
+        start_time = new Date().getTime(),
+        boundary = '------multipartformboundary' + (new Date).getTime(),
+        builder;
+
+      newName = rename(file.name);
+      if (typeof newName === "string") {
+        builder = getBuilder(newName, e.target.result, boundary);
+      } else {
+        builder = getBuilder(file.name, e.target.result, boundary);
+      }
+
+      upload.index = index;
+      upload.file = file;
+      upload.downloadStartTime = start_time;
+      upload.currentStart = start_time;
+      upload.currentProgress = 0;
+      upload.startData = 0;
+      upload.addEventListener("progress", progress, false);
+
+      xhr.open("POST", opts.url, true);
+      xhr.setRequestHeader('content-type', 'multipart/form-data; boundary=' 
+          + boundary);
+
+      xhr.sendAsBinary(builder);  
+
+      opts.uploadStarted(index, file, files_count);  
+
+      xhr.onload = function() { 
+          if (xhr.responseText) {
+        var now = new Date().getTime(),
+            timeDiff = now - start_time,
+            result = opts.uploadFinished(index, file, jQuery.parseJSON(xhr.responseText), timeDiff);
+          filesDone++;
+          if (filesDone == files_count - filesRejected) {
+            afterAll();
+          }
+          if (result === false) stop_loop = true;
+          }
+      };
     }
 
     function getIndexBySize(size) {
