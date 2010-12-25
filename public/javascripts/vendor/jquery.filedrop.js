@@ -71,7 +71,7 @@
       opts.drop(e);
       files = e.dataTransfer.files;
       files_count = files.length;
-      filedrop.upload();
+      //filedrop.upload();
       e.preventDefault();
       return false;
     }
@@ -163,17 +163,7 @@
           if (beforeEach(files[i]) != false) {
             if (i === files_count) return;
             //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-            var reader = new FileReader(),
-              max_file_size = 1048576 * opts.maxfilesize;
-
-            reader.index = i;
-            if (files[i].size > max_file_size) {
-              opts.error(errors[2], files[i]);
-              return false;
-            }
-
-            reader.addEventListener("loadend", send, false);
-            reader.readAsBinaryString(files[i]);
+            filedrop.upload_file(files[i]);
             //^^^^^^^^^^^^^^^^^^^^^^^^^^^
           } else {
             filesRejected++;
@@ -185,6 +175,21 @@
       }
     }
     
+    this.upload_file = function(file_object){
+      var reader = new FileReader(),
+        max_file_size = 1048576 * opts.maxfilesize;
+
+      reader.index = -1;
+      reader.file = file_object;
+      if (file_object.size > max_file_size) {
+        opts.error(errors[2], file_object);
+        return false;
+      }
+
+      reader.addEventListener("loadend", send, false);
+      reader.readAsBinaryString(file_object);
+    };
+    
     function send(e) {
       // Sometimes the index is not attached to the
       // event object. Find it by size. Hack for sure.
@@ -194,7 +199,7 @@
 
       var xhr = new XMLHttpRequest(),
         upload = xhr.upload,
-        file = files[e.target.index],
+        file = e.target.file,
         index = e.target.index,
         start_time = new Date().getTime(),
         boundary = '------multipartformboundary' + (new Date).getTime(),
@@ -221,7 +226,7 @@
 
       xhr.sendAsBinary(builder);  
 
-      opts.uploadStarted(index, file, files_count);  
+      opts.uploadStarted(index, file, filedrop.files_count);  
 
       xhr.onload = function() { 
           if (xhr.responseText) {

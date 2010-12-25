@@ -1,6 +1,6 @@
 $.fn.upload_manager = function(options){
   var defaults = {
-    
+    queue_item_template: '<li>${file.name}</li>'
   };
   
   var form   = this;
@@ -11,6 +11,9 @@ $.fn.upload_manager = function(options){
   var drop_target = form.find('.html5_upload_area');
   
   var queue = []; //[source_name,file object]
+  var queue_list = form.find('fieldset.queue ol');
+  
+  var queue_item_template = $.template('queue_item_template',config.queue_item_template);
   
   var filedrop = drop_target.filedrop({
     url: '/assets',
@@ -19,18 +22,31 @@ $.fn.upload_manager = function(options){
       authenticity_token: $('meta[name=csrf-token]').attr('content')
     },
     drop: function(event){
-      //add event.dataTransfer.files to queue
+      //add  to queue
+      $.each(event.dataTransfer.files,function(_i,file){
+        queue.push(file);
+        $.tmpl("queue_item_template",{file: file}).appendTo(queue_list);
+      });
     },
     dragOver: function(event){
       $(event.target).addClass('drag_over');
     },
     dragLeave: function(event){
       $(event.target).removeClass('drag_over');
+    },
+    uploadStarted: function(_index,file,_total){
+      queue_list.html(file.name+" is started!");      
+    },
+    progressUpdated: function(_index,file,progress){
+      queue_list.html(file.name+" is "+progress);
     }
   });
   
   form.submit(function(event){
     alert(filedrop.files_count());
+    $.each(queue,function(_i,file){
+      filedrop.upload_file(file);
+    });
     return false;
   });
   
