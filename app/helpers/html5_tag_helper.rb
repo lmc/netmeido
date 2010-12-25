@@ -17,7 +17,7 @@ module Html5TagHelper
     content_tag(:time,attributes) { display }
   end
   
-  def html5_upload_area
-    '<div class="html5_upload_area"></div>'.html_safe
+  def html5_upload_area(text = 'Drop files here')
+    content_tag(:div,:class => 'html5_upload_area') { text }
   end
 end

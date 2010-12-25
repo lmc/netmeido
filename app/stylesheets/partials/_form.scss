@@ -71,14 +71,16 @@ form.bp {
 
 #new_asset {
   @include column(10);
+  
+  fieldset.inputs {
+    li.string input {
+      width: 215px;
+    }
+  }
 }
 
 .edit_asset {
   @include column(10);
-  
-  fieldset.inputs {
-
-  }
 }
 
 .html5_upload_area {
