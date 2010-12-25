@@ -5,5 +5,7 @@ class Asset
   
   mount_uploader :file, AssetUploader
   
+  include TagsAccessors
   references_many :tags
+  
 end

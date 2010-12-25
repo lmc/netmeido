@@ -11,3 +11,19 @@
 @import "partials/page";
 @import "partials/form";
 @import "partials/two_col";
+
+fieldset.tags_editor {
+  li.related_tags ul, li.all_tags ul {
+    @include column(7);
+    list-style: none;
+    padding: 0px;
+    
+    li {
+      float: left;
+      height: auto;
+      border: 1px #AAF dotted;
+      margin: 0em 0.5em 0.5em 0em;
+      padding: 2px;
+    }
+  } 
+}
