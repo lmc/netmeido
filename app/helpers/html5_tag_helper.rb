@@ -20,4 +20,9 @@ module Html5TagHelper
   def html5_upload_area(text = 'Drop files here')
     content_tag(:div,:class => 'html5_upload_area') { text }
   end
+  
+  def html5_template(id,attributes = {},&block)
+    attributes.merge!(:id => id,:type => 'text/x-template')
+    content_tag(:script,attributes,&block)
+  end
 end

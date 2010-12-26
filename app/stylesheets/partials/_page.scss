@@ -13,6 +13,8 @@ body.bp {
   @include blueprint-interaction; 
   
   @include container;
+  
+  overflow: scroll;
 }
 
 // Remove the scaffolding when you're ready to start doing visual design.

@@ -1,0 +1,1 @@
+//TODO: JS base model, need to figure out how to trick JS/jQuery into properly doing inheritance

@@ -125,6 +125,7 @@
     function progress(e) {
       if (e.lengthComputable) {
         var percentage = Math.round((e.loaded * 100) / e.total);
+        var percentage = (e.loaded * 100) / e.total;
         if (this.currentProgress != percentage) {
 
           this.currentProgress = percentage;

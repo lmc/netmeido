@@ -5,3 +5,9 @@
     %li.file_drop.optional= html5_upload_area
   = f.buttons
   = f.inputs :name => 'Queue', :class => 'queue'
+  
+  = html5_template('upload_manager_queue_item') do
+    %li 
+      .name ${file.name}
+      .status Pending
+      .progress
