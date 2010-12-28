@@ -163,9 +163,13 @@
         try {
           if (beforeEach(files[i]) != false) {
             if (i === files_count) return;
-            //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
             filedrop.upload_file(files[i]);
-            //^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            
+            filesDone++;
+            if (filesDone == files_count - filesRejected) {
+              afterAll();
+            }
+            if (result === false) stop_loop = true;
           } else {
             filesRejected++;
           }
@@ -234,11 +238,6 @@
         var now = new Date().getTime(),
             timeDiff = now - start_time,
             result = opts.uploadFinished(index, file, jQuery.parseJSON(xhr.responseText), timeDiff);
-          filesDone++;
-          if (filesDone == files_count - filesRejected) {
-            afterAll();
-          }
-          if (result === false) stop_loop = true;
           }
       };
     }

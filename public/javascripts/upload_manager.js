@@ -17,6 +17,8 @@ $.fn.upload_manager = function(options){
   var queue_item_template = $.template('queue_item_template',config.queue_item_template);
   
   var next_file_index = 0;
+  var statuses = ['pending','started','processing','finished'];
+  var statuses_classes = statuses.join(' ');
   
   var filedrop = drop_target.filedrop({
     url: '/assets.json',
@@ -39,15 +41,22 @@ $.fn.upload_manager = function(options){
       $(event.target).removeClass('drag_over');
     },
     uploadStarted: function(_index,file,_total){
-      queue_item_for(file).find('.status').html("Started");
+      queue_item_for(file).removeClass(statuses_classes).addClass("started").
+        find('.status').html("Started");
     },
     progressUpdated: function(_index,file,progress){
       queue_item_for(file).find('.progress').html(progress);
     },
     uploadFinished: function(_index,file,json,time_taken){
+      var asset = new Asset(json);
+      queue_item_for(file).removeClass(statuses_classes).addClass("finished");
       queue_item_for(file).find('.status').html("Completed in "+time_taken);
+      queue_item_for(file).find('.url').attr('href',asset.url());
+      
       next_file_index++;
-      filedrop.upload_file(queue[next_file_index]);
+      if(next_file_index < queue.length){
+        filedrop.upload_file(queue[next_file_index]);
+      }
     }
   });
   

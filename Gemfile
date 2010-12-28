@@ -16,6 +16,8 @@ gem 'inherited_resources', '1.1.2'
 # Models
 gem 'validation_reflection'
 
+gem 'nestful'
+
 # Views and templating
 gem 'haml'
 gem 'compass', ">= 0.10.6"

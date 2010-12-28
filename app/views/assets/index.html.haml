@@ -2,5 +2,5 @@
 %ul
   - collection.each do |asset|
     %li[asset]
-      = link_to asset.id, asset
+      = link_to asset.file_filename, asset
       = html5_time(asset.created_at,:long)

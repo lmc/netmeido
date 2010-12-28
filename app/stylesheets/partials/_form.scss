@@ -36,7 +36,7 @@ form.bp {
       padding-top: 0.3em;
     }
     
-    li.file input, li.string input {
+    li.file input, li.string input, li.url input {
       @include column(5);
       margin: 0;
       padding: 4px;
@@ -49,7 +49,7 @@ form.bp {
       }
     }
     
-    li.text textarea, li.string input {
+    li.text textarea, li.string input, li.url input {
       width: 275px;
     }
     
@@ -73,7 +73,7 @@ form.bp {
   @include column(10);
   
   fieldset.inputs {
-    li.string input {
+    li.url input {
       width: 215px;
     }
   }

@@ -1,7 +1,7 @@
 = semantic_form_for(resource,:html => {:multipart => true, :class => 'bp'}) do |f|
   = f.inputs do
-    = f.input :file, :label => 'Browse'
-    = f.input :file_url, :label => 'URL'
+    = f.input :file, :label => 'Browse', :input_html => {:multiple => true}
+    = f.input :file_url, :label => 'URL', :as => :url
     %li.file_drop.optional= html5_upload_area
   = f.buttons
   = f.inputs :name => 'Queue', :class => 'queue'
@@ -11,3 +11,4 @@
       .name ${file.name}
       .status Pending
       .progress
+      = link_to 'URL', '#', :class => 'url'

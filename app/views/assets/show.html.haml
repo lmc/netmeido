@@ -1,2 +1,10 @@
 %h1= resource.id.to_s
+%pre= resource.file.url
 = image_tag(resource.file.url)
+%h2 Versions
+%ul
+  - resource.file.versions.each_pair do |name,version|
+    %li{:class => name}
+      %h3= name
+      = image_tag(version.url)
+%pre= resource.to_yaml
