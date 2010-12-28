@@ -20,15 +20,20 @@ $.fn.upload_manager = function(options){
   var statuses = ['pending','started','processing','finished'];
   var statuses_classes = statuses.join(' ');
   
+  var max_preview_filesize = 512 * 1024; //anything larger than 512kb makes firefox run out of script stack space
+  var preview_image = '';
+  
   var filedrop = drop_target.filedrop({
     url: '/assets.json',
     paramname: 'asset[file]',
     data: {
       authenticity_token: $('meta[name=csrf-token]').attr('content')
     },
+    maxfilesize: 10,
     drop: function(event){
       $.each(event.dataTransfer.files,function(_i,file){
-        var queue_item = $.tmpl("queue_item_template",{file: file});
+        var preview_url = file.size < max_preview_filesize ? file.getAsDataURL() : preview_image;
+        var queue_item = $.tmpl("queue_item_template",{file: file,preview_url: preview_url});
         queue.push(file);
         queue_items.push(queue_item);
         queue_item.appendTo(queue_list);
