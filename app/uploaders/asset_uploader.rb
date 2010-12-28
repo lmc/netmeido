@@ -4,7 +4,7 @@ class AssetUploader < CarrierWave::Uploader::Base
   storage :s3
   
   version :thumb do
-    process :resize_to_fill => [240,240]
+    process :resize_to_fill => [400,400]
   end
 
   def store_dir
