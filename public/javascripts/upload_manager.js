@@ -23,6 +23,8 @@ $.fn.upload_manager = function(options){
   var max_preview_filesize = 512 * 1024; //anything larger than 512kb makes firefox run out of script stack space
   var preview_image = '';
   
+  var uploaded_ids = [];
+  
   var filedrop = drop_target.filedrop({
     url: '/assets.json',
     paramname: 'asset[file]',
@@ -54,13 +56,18 @@ $.fn.upload_manager = function(options){
     },
     uploadFinished: function(_index,file,json,time_taken){
       var asset = new Asset(json);
+      
       queue_item_for(file).removeClass(statuses_classes).addClass("finished");
       queue_item_for(file).find('.status').html("Completed in "+time_taken);
       queue_item_for(file).find('.url').attr('href',asset.url());
       
+      uploaded_ids.push(asset.id);
+      
       next_file_index++;
       if(next_file_index < queue.length){
         filedrop.upload_file(queue[next_file_index]);
+      }else{
+        window.location ="/assets?ids="+uploaded_ids.join(',');
       }
     }
   });

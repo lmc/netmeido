@@ -1,6 +1,6 @@
 %h1 Assets
 %ul
-  - collection.each do |asset|
-    %li[asset]
-      = link_to asset.file_filename, asset
-      = html5_time(asset.created_at,:long)
+  = render @assets
+= html5_template("asset_tags_editor") do
+  = semantic_form_for(:post,:url => "/assets/${asset.id}",:html => {:method => 'put'}) do |f|
+    = render 'assets/tags_editor', :f => f

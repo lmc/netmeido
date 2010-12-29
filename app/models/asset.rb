@@ -8,4 +8,12 @@ class Asset
   include TagsAccessors
   references_many :tags
   
+  #new defaults here
+  def to_json(*arguments)
+    options = arguments.extract_options!
+    options[:methods] ||= []
+    options[:methods]  += [:tag_titles]
+    super(*(arguments + [options]))
+  end
+  
 end
