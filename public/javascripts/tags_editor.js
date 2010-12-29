@@ -14,9 +14,6 @@ $.fn.tags_editor = function(options){
   
   fieldset.addClass('tags_editor');
   
-  textarea.change(textarea_update);
-  textarea.keyup(textarea_update);
-  
   var textarea_update = function(event){
     tags_list_truncate();
     $.each(all_tags(),function(_i,tag){
@@ -39,4 +36,9 @@ $.fn.tags_editor = function(options){
   var tags_list_add = function(tag_title){
     $.tmpl("tags_list_item_template",{tag: tag_title}).appendTo(tags_list);
   };
+  
+  
+  textarea.change(textarea_update);
+  textarea.keyup(textarea_update);
+  
 };
