@@ -19,7 +19,7 @@ $(document).ready(function(){
       var asset = new Asset(asset_element.data('attributes'));
       
       var tags_editor_html = $.tmpl("asset_tags_editor_template",{asset: asset});
-      tags_editor_html.appendTo(asset_element);;
+      tags_editor_html.appendTo(asset_element);
       var form = tags_editor_html; //assumes the form is the root of the template
       
       var tags_editor = asset_element.find('textarea#asset_tag_titles');

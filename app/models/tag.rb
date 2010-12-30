@@ -8,6 +8,10 @@ class Tag
   #a_tag
   #a_more_complex_tag_(with_disambiguation)
   def self.normalize_title_string(title)
-    title.downcase.gsub(/\s+/,'_').gsub(/[^A-Za-z0-9_\(\)]/,'')
+    title.downcase.gsub(/\s+/,'_').gsub(/[^A-Za-z0-9_\-\(\)]/,'')
+  end
+  
+  def title=(new_title)
+    write_attribute(:title,self.class.normalize_title_string(new_title))
   end
 end
