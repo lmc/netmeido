@@ -15,8 +15,9 @@ gem 'inherited_resources', '1.1.2'
 
 # Models
 gem 'validation_reflection'
-
-gem 'nestful'
+#gem 'nestful' #not used yet
+gem 'delayed_job'
+gem 'delayed_job_mongoid'
 
 # Views and templating
 gem 'haml'
