@@ -1,7 +1,8 @@
 var BaseModelClassMethods = {
-  init: function(id,attributes,element){
+  init: function(id,attributes){
     var instance = new this(attributes);
     instance.id = id;
+    instance.init_juggernaut();
     return instance;
   }
 };
@@ -22,7 +23,12 @@ var BaseModelInstanceMethods = {
     return "/" + this.plural() + "/" + this.id;
   },
   
+  init_juggernaut: function(){
+    window.juggernaut_client.subscribe(this.url(),$.proxy(this.onjuggernautpush,this));
+  },
+  
   onjuggernautpush: function(data){
-    var event_name = data.event_name;
+    var event_name = 'push:'+data.event_name;
+    this._class.trigger(event_name,data);
   }
 };

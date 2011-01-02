@@ -5,6 +5,11 @@ Asset.include({
   
 });
 
+Asset.on('push:after_save',function(data){
+  console.log('after save!!');
+  console.log(data);
+});
+
 
 
 

@@ -1,5 +1,6 @@
 class Asset
   include Mongoid::Document
+  include Juggernaut::Resource
   field :file_filename
   field :created_at, :type => DateTime, :default => lambda { Time.zone.now }
   

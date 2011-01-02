@@ -1,4 +1,9 @@
+var juggernaut_client;
+
 $(document).ready(function(){
+  var juggernaut_client = new Juggernaut;
+  juggernaut_client.connect();
+  window.juggernaut_client = juggernaut_client;
   
   if($('form#new_asset').length){
     $('form#new_asset').upload_manager({
@@ -23,7 +28,7 @@ $(document).ready(function(){
       var form = tags_editor_html; //assumes the form is the root of the template
       
       var tags_editor = asset_element.find('textarea#asset_tag_titles');
-      tags_editor.val(asset.attributes.tag_titles);
+      tags_editor.val(asset.tag_titles);
       tags_editor.tags_editor({});
       
       form.submit(function(event){
