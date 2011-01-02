@@ -2,7 +2,7 @@ class Tag
   include Mongoid::Document
   field :title, :type => String
   
-  referenced_in :asset, :inverse_of => :tags
+  referenced_in :asset, :inverse_of => :tags, :stored_as => :array
   
   #Normalized tags are seperated by spaces, with inter-tag spaces using underscores
   #a_tag

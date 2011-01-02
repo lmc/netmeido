@@ -31,5 +31,29 @@ describe Asset do
       tag_titles.should include "tag_2"
       tag_titles.should include "herp-derp_tag"
     end
+    
+    it "should save tags on asset save" do
+      Tag.where(:title.in => ['lovely_tag','second_lovely_tag']).destroy_all
+      
+      #FIXME?: I think the accessor should be atomic, nothing changes until .save is called
+      lambda {
+        @asset.tag_titles = "lovely_tag"
+        @asset.save
+      }.should change(Tag,:count).by(1)
+      
+      lambda {
+        @asset.update_attributes(:tag_titles => 'second_lovely_tag')
+      }.should change(Tag,:count).by(1)
+    end
+    
+    it "should use the same tag for each asset" do
+      @asset_1 = Asset.create(:tag_titles => 'herp')
+      @asset_2 = Asset.create(:tag_titles => 'herp')
+      
+      @asset_1.tags.size.should == 1
+      @asset_1.tags[0].title.should == 'herp'
+      
+      @asset_1.tags[0].should == @asset_2.tags[0]
+    end
   end
 end

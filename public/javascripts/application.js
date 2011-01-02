@@ -16,13 +16,14 @@ $(document).ready(function(){
     var template = $.template('asset_tags_editor_template',$('script#asset_tags_editor'));
     $('li.asset ul.actions li.edit_tags a').live('click',function(event){
       var asset_element = $(event.target).parents('li.asset');
-      var asset = new Asset(asset_element.data('attributes'));
+      var asset = asset_element.model_instance();
       
       var tags_editor_html = $.tmpl("asset_tags_editor_template",{asset: asset});
       tags_editor_html.appendTo(asset_element);
       var form = tags_editor_html; //assumes the form is the root of the template
       
       var tags_editor = asset_element.find('textarea#asset_tag_titles');
+      tags_editor.val(asset.attributes.tag_titles);
       tags_editor.tags_editor({});
       
       form.submit(function(event){
@@ -34,7 +35,7 @@ $(document).ready(function(){
           complete: function(request,status){
           },
           success: function(data,status,request){
-            
+            console.log(data);
           },
           error: function(request,status,error){
             

@@ -6,7 +6,7 @@ class Asset
   mount_uploader :file, AssetUploader
   
   include TagsAccessors
-  references_many :tags
+  references_many :tags, :stored_as => :array
   
   #new defaults here
   def to_json(*arguments)

@@ -12,6 +12,7 @@ gem "bson_ext", "1.1.5"
 
 # Controllers and resources
 gem 'inherited_resources', '1.1.2'
+gem 'juggernaut'
 
 # Models
 gem 'validation_reflection'
