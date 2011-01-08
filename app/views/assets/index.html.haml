@@ -1,5 +1,5 @@
 %h1 Assets
-%ul
+%ul#assets
   = render @assets
 = html5_template("asset_tags_editor") do
   = semantic_form_for(:asset,:url => "/assets/${asset.id}.json",:html => {:method => 'put', :class => 'bp edit_asset'}) do |f|

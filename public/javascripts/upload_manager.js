@@ -55,7 +55,7 @@ $.fn.upload_manager = function(options){
       queue_item_for(file).find('.progress').html(progress);
     },
     uploadFinished: function(_index,file,json,time_taken){
-      var asset = new Asset(json);
+      var asset = Asset.init_json(json);
       
       queue_item_for(file).removeClass(statuses_classes).addClass("finished");
       queue_item_for(file).find('.status').html("Completed in "+time_taken);

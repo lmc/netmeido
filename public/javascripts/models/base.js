@@ -4,6 +4,11 @@ var BaseModelClassMethods = {
     instance.id = id;
     instance.init_juggernaut();
     return instance;
+  },
+  init_json: function(attributes){
+    var id = attributes._id;
+    delete attributes._id;
+    return this.init(id,attributes);
   }
 };
 
