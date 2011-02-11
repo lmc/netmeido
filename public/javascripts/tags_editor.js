@@ -1,6 +1,7 @@
 $.fn.tags_editor = function(options){
+  var delete_btn = '<a href="#" class="icon_button delete">Delete</a>';
   var defaults = {
-    tags_list_item_template: '<li data-tag="${tag}">${tag}</li>'
+    tags_list_item_template: '<li data-tag="${tag}">'+delete_btn+'${tag}</li>'
   };
   
   var textarea  = this;
@@ -8,7 +9,11 @@ $.fn.tags_editor = function(options){
   
   var fieldset  = $(this).parents('fieldset');
   var related   = fieldset.find('li.related_tags ul');
-  var tags_list = fieldset.find('li.all_tags     ul');
+  //var tags_list = fieldset.find('li.all_tags     ul');
+  
+  fieldset.find('ol').hide();
+  fieldset.append('<ol class="tags_list"></ol>');
+  var tags_list = fieldset.find('ol.tags_list');
   
   var tags_list_item_template = $.template('tags_list_item_template',config.tags_list_item_template);
   
@@ -40,5 +45,5 @@ $.fn.tags_editor = function(options){
   
   textarea.change(textarea_update);
   textarea.keyup(textarea_update);
-  
+  textarea_update();
 };

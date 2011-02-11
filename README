@@ -4,5 +4,14 @@ Assets:
   TODO JS: Make upload_manager.js have it's own callbacks, instead of hard-coded ones inside filedrop
   
 Workflow:
-  Multi-edit with upload widget on the side.
-    So you can start assigning tags as they upload
+  New Asset:
+    Textfield at top of tags list for quick entry
+      autocomplete for last 'word'
+      insert tag elements as soon as previous 'word' ends
+        with related tags extending out to the side
+          can be clicked without losing focus to enter that related tag as the next word in textfield
+      OR
+      autocomplete for last 'word'
+        once word is chosen, insert tag element
+        and show related tags for that word, clickable
+        same related tags stay until you press space, then it shows related tags for the last entered tag (could be the one you just clicked on)

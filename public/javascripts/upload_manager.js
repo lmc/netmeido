@@ -21,7 +21,7 @@ $.fn.upload_manager = function(options){
   var statuses_classes = statuses.join(' ');
   
   var max_preview_filesize = 512 * 1024; //anything larger than 512kb makes firefox run out of script stack space
-  var preview_image = 'herp_derp.png';
+  var preview_image = 'default.png';
   
   var uploaded_ids = [];
   

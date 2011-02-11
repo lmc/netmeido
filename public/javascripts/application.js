@@ -20,8 +20,9 @@ $(document).ready(function(){
     });
   }
   
-  if($('#asset_tag_titles').length){
-    $('#asset_tag_titles').tags_editor({
+  var tags_editor_rule = '#asset_tag_titles, #asset_multi_options_tag_titles';
+  if($(tags_editor_rule).length){
+    $(tags_editor_rule).tags_editor({
     
     });
   }

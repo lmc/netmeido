@@ -3,7 +3,7 @@ class AssetsController < ApplicationController
   respond_to :html, :json
   
   new! do |success|
-    @assets_multi_options = AssetMultiOptions.new({})
+    @assets_multi_options = AssetMultiOptions.new({:tag_titles => 'test super_lovely'})
   end
   
   create! do |success,failure|

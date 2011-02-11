@@ -66,4 +66,36 @@
       }
     }
   }
+  
+  #column_multi_options {
+    @include column(5);
+    border-right: 1px #888 dashed;
+    
+    padding-left:  1em;
+    padding-right: 1em;
+    
+    fieldset.tags_editor {
+      width: 100%;
+      
+      ol.tags_list {
+        border-top: 1px #888 dashed;
+        
+        li {
+          border-bottom: 1px #888 dashed;
+          
+          padding-top: 0.5em;
+          height: 1.5em;
+          margin: 0;
+          
+          a.delete {
+            float: left;
+            visibility: hidden;
+          }
+          &:hover a.delete {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
 }

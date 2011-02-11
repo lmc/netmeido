@@ -10,7 +10,8 @@
       = f.inputs :name => 'Queue', :class => 'queue'
   #column_multi_options
     = semantic_form_for(@assets_multi_options,:url => '',:html => {:class => 'bp'}) do |f|
-      = f.inputs :name => "default tags herp derp"
+      = f.inputs :name => "Tags for all uploads" do
+        = render 'tags_editor', :f => f
         
 
 = html5_template('upload_manager_queue_item') do

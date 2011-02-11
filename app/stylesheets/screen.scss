@@ -57,3 +57,16 @@ fieldset.tags_editor {
     }
   }
 }
+
+.icon_button {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-image: url('/images/icons/cookie.png');
+  text-indent: -10000em;
+  
+  &.edit_tag { background-image: url('/images/icons/tag--pencil.png'); }
+  &.delete   { background-image: url('/images/icons/minus-circle.png'); }
+}
