@@ -7,7 +7,10 @@ describe Asset do
   
   describe "Files" do
     it "should accept a file on :file"
-    it "should thumbnail compatible files"
+    it "should thumbnail compatible files" do
+      @asset = Asset.new(:file => asset_fixture_file('test.jpg'))
+      #@asset.
+    end
     it "should show icon for un-thumbnailable files"
     it "should be uploaded to S3"
     

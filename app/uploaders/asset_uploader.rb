@@ -1,7 +1,7 @@
 # encoding: utf-8
 class AssetUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  storage :s3
+  #storage :s3
   
   version :thumb do
     process :resize_to_fill => [400,400]

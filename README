@@ -2,3 +2,7 @@ Assets:
   BUG CONTROLLER: Uploader sending all data as application/octet-stream, should probably have middleware to properly and authoritatively correct this
     Scratch that, the model should re-interpret it really.
   TODO JS: Make upload_manager.js have it's own callbacks, instead of hard-coded ones inside filedrop
+  
+Workflow:
+  Multi-edit with upload widget on the side.
+    So you can start assigning tags as they upload

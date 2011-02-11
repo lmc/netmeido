@@ -12,6 +12,8 @@
 @import "partials/form";
 @import "partials/two_col";
 
+@import "partials/assets";
+
 fieldset.tags_editor {
   li.related_tags ul, li.all_tags ul {
     @include column(7);

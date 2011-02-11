@@ -25,3 +25,7 @@ RSpec.configure do |config|
   # instead of true.
   #config.use_transactional_fixtures = true
 end
+
+def asset_fixture_file(filename)
+  File.open(Rails.root.join('spec','fixtures','assets',filename))
+end

@@ -2,6 +2,10 @@ class AssetsController < ApplicationController
   inherit_resources
   respond_to :html, :json
   
+  new! do |success|
+    @assets_multi_options = AssetMultiOptions.new({})
+  end
+  
   create! do |success,failure|
     success.html { redirect_to asset_url(@asset) }
   end

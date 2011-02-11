@@ -1,5 +1,14 @@
 var juggernaut_client;
 
+function dialog_options(options){
+  if(!options)
+    options = {};
+  return $.extend({},{
+    modal: true,
+    width: $('body').width() * 0.8
+  },options);
+}
+
 $(document).ready(function(){
   var juggernaut_client = new Juggernaut;
   juggernaut_client.connect();
@@ -24,7 +33,7 @@ $(document).ready(function(){
       var asset = asset_element.model_instance();
       
       var tags_editor_html = $.tmpl("asset_tags_editor_template",{asset: asset});
-      tags_editor_html.appendTo(asset_element);
+      tags_editor_html.dialog(dialog_options({}));
       var form = tags_editor_html; //assumes the form is the root of the template
       
       var tags_editor = asset_element.find('textarea#asset_tag_titles');

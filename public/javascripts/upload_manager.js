@@ -21,7 +21,7 @@ $.fn.upload_manager = function(options){
   var statuses_classes = statuses.join(' ');
   
   var max_preview_filesize = 512 * 1024; //anything larger than 512kb makes firefox run out of script stack space
-  var preview_image = '';
+  var preview_image = 'herp_derp.png';
   
   var uploaded_ids = [];
   
@@ -34,8 +34,10 @@ $.fn.upload_manager = function(options){
     maxfilesize: 10,
     drop: function(event){
       $.each(event.dataTransfer.files,function(_i,file){
-        var preview_url = file.size < max_preview_filesize ? file.getAsDataURL() : preview_image;
+        var preview_url = file.size < max_preview_filesize && file.getAsDataURL ? file.getAsDataURL() : preview_image;
+        if(!preview_url || !preview_url.length) preview_url = preview_image;
         var queue_item = $.tmpl("queue_item_template",{file: file,preview_url: preview_url});
+        queue_item.addClass('pending');
         queue.push(file);
         queue_items.push(queue_item);
         queue_item.appendTo(queue_list);
@@ -52,7 +54,9 @@ $.fn.upload_manager = function(options){
         find('.status').html("Started");
     },
     progressUpdated: function(_index,file,progress){
-      queue_item_for(file).find('.progress').html(progress);
+      var progress_label = progress + '%';
+      queue_item_for(file).find('.progress_label').html(progress_label);
+      queue_item_for(file).find('.progress_bar .inner').css({width: progress+'%'});
     },
     uploadFinished: function(_index,file,json,time_taken){
       var asset = Asset.init_json(json);

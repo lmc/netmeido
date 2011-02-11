@@ -1,0 +1,69 @@
+#new_asset_editor {
+  @include container;
+  border: 1px #888 solid;
+  
+  #column_uploader {
+    @include column(10);
+    border-right: 1px #888 dashed;
+    
+    padding-left:  1em;
+    padding-right: 1em;
+    
+    fieldset.inputs {
+      height: 6em;
+    }
+    fieldset.buttons {
+      position: relative;
+      z-index: 2;
+    }
+    fieldset.queue {
+      position: relative;
+      z-index: 1;
+      top: -2em;
+      
+      ol {
+        border-top: 1px #888 dashed;
+        
+        li.queue_item {
+          position: relative;
+          
+          border-bottom: 1px #888 dashed;
+          height: 2em;
+          margin: 0;
+          
+          .preview {
+            display: none;
+          }
+          
+          .progress_label, .status {
+            float: right;
+            display: none;
+          }
+          &.pending, &.processing, &.finished {
+            .progress_label { display: none;  }
+            .status         { display: block; }
+          }
+          &.started {
+            .progress_label { display: block; }
+            .status         { display: none;  }
+          }
+          
+          .progress_bar {
+            position: absolute;
+            bottom: 0.33em;
+            
+            background-color: #EEE;
+            width: 100%;
+            height: 3px;
+            
+            .inner {
+              width: 75%;
+              background-color: #7F7;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

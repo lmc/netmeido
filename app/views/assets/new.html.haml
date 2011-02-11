@@ -1,15 +1,23 @@
-= semantic_form_for(resource,:html => {:multipart => true, :class => 'bp'}) do |f|
-  = f.inputs do
-    = f.input :file, :label => 'Browse', :input_html => {:multiple => true}
-    = f.input :file_url, :label => 'URL', :as => :url
-    %li.file_drop.optional= html5_upload_area
-  = f.buttons
-  = f.inputs :name => 'Queue', :class => 'queue'
-  
-  = html5_template('upload_manager_queue_item') do
-    %li 
-      %img{:src => '${preview_url}',:class => 'preview',:width => 40,:height => 40}
-      .name ${file.name}
-      .status Pending
-      .progress
-      = link_to 'URL', '#', :class => 'url'
+#new_asset_editor
+  #column_uploader.column
+    = semantic_form_for(resource,:html => {:multipart => true, :class => 'bp'}) do |f|
+      = f.inputs do
+        = f.input :file, :label => 'Browse', :input_html => {:multiple => true}
+        = f.input :file_url, :label => 'URL', :as => :url
+        %li.file_drop.optional= html5_upload_area
+      = f.buttons do
+        = f.commit_button :label => 'Start Uploading'
+      = f.inputs :name => 'Queue', :class => 'queue'
+  #column_multi_options
+    = semantic_form_for(@assets_multi_options,:url => '',:html => {:class => 'bp'}) do |f|
+      = f.inputs :name => "default tags herp derp"
+        
+
+= html5_template('upload_manager_queue_item') do
+  %li.queue_item
+    %img{:src => '${preview_url}',:class => 'preview',:width => 40,:height => 40}
+    .status Pending
+    .progress_label 75%
+    .progress_bar
+      .inner
+    .name ${file.name}
