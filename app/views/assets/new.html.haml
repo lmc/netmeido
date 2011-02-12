@@ -10,6 +10,9 @@
       = f.inputs :name => 'Queue', :class => 'queue'
   #column_multi_options
     = semantic_form_for(@assets_multi_options,:url => '',:html => {:class => 'bp'}) do |f|
+      = f.inputs :name => "Grouping" do
+        = f.input :group, :as => :boolean, :label => "Group uploads"
+        = f.input :group_title
       = f.inputs :name => "Tags for all uploads" do
         = render 'tags_editor', :f => f
         
