@@ -59,14 +59,7 @@ $.fn.upload_manager = function(options){
       queue_item_for(file).find('.progress_bar .inner').css({width: progress+'%'});
     },
     uploadFinished: function(_index,file,json,time_taken){
-      var asset = Asset.init_json(json);
-      
-      queue_item_for(file).removeClass(statuses_classes).addClass("finished");
-      queue_item_for(file).find('.status').html("Completed in "+time_taken);
-      queue_item_for(file).find('.url').attr('href',asset.url());
-      
-      uploaded_ids.push(asset.id);
-      
+      finish_upload_for(file,json);
       next_file_index++;
       if(next_file_index < queue.length){
         start_upload_for(next_file_index);
@@ -77,13 +70,25 @@ $.fn.upload_manager = function(options){
   });
   
   var start_upload_for = function(queue_offset){
-    if(queue[queue_offset].type == 'application/x-remote-file'){
-      console.log(queue[queue_offset]);
-      var params = file_remote_options.paramname+'='+queue[queue_offset].remote_url;
-      $.post(file_remote_options.url,params);
+    var file = queue[queue_offset];
+    if(file.type == 'application/x-remote-file'){
+      var params = file_remote_options.paramname+'='+file.remote_url;
+      $.ajax({type: 'POST', url: file_remote_options.url, data: params,
+        success: function(json){ finish_upload_for(file,json); }
+      });
     }else{
       filedrop.upload_file(queue[queue_offset]);
     }
+  };
+  
+  var finish_upload_for = function(file,json){
+    var asset = Asset.init_json(json);
+    
+    queue_item_for(file).removeClass(statuses_classes).addClass("finished");
+    queue_item_for(file).find('.status').html("Completed");
+    queue_item_for(file).find('.url').attr('href',asset.url());
+    
+    uploaded_ids.push(asset.id);
   };
   
   var create_queue_item_for = function(file){
