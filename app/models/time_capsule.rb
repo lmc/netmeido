@@ -6,6 +6,7 @@ class TimeCapsule < SnmpClient
   
   attr_accessor :interface_stats
   
+  #TODO!: Deal with a "cannot connect" error
   def parse!
     self.interface_stats = Hash.new { |hash,key| hash[key] = {} }
     
