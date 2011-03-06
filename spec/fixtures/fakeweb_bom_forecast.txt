@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-AU" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="language" content="english" />
+    <title>Melbourne Metropolitan Area</title>
+    <link rel="Schema.AGLS" href="http://www.naa.gov.au/recordkeeping/gov_online/agls/1.2" />
+    <meta name="DC.Identifier" scheme="URI" content="http://www.bom.gov.au/weather" />
+    <meta name="DC.Title" content="Australian weather and warnings information" />
+
+    <meta name="DC.Creator" content="corporateName=Bureau of Meteorology" />
+    <meta name="DC.Subject" scheme="BoM_Library_Thesaurus" content="Weather forecast-Australia; Flood forecast-Australia; Severe weather warnings; Satellite meteorology; Radar meteorology" />
+    <meta name="DC.Publisher" content="corporateName=Bureau of Meteorology" />
+    <meta name="DC.Date.created" scheme="ISO8601" content="2000" />
+    <meta name="DC.Description" content="Provides access to Australian weather forecasts, weather observations, flood warnings and high sea forecasts from each state and territory provided by the Bureau of Meteorology" />
+    <meta name="DC.Type.documentType" scheme="BoM_document list" content="Web page; map" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Coverage.jurisdiction" content="Commonwealth of Australia" />
+    <meta name="DC.Rights" scheme="URI" content="http://www.bom.gov.au/other/copyright.shtml" />
+
+    <meta name="AGLS.Function" scheme="AGIFT" content="; Earth Sciences; Atmospheric sciences; Hydrology; Oceanography" />
+    <meta name="AGLS.Audience" scheme="BoM_audience list" content="All" />
+    <meta name="DC.Language" scheme="RFC1766" content="en" />
+    <meta name="DC.Type.aggregationLevel" content="collection" />
+    <meta name="AGLS.Availability" content="corporateName=Bureau of Meteorology; address=GPO Box 1289K, Melbourne, Victoria; postcode=3001; contact=tel 03 9669 4000; contact=fax 03 9669 4699; contact=ABN 92637533532" />
+    <meta name="keywords" content="Weather forecasts; Weather warnings; Weather observations; Tropical cyclone warnings; Flood warnings; Satellite imagery; Radar imagery; Current and forecast charts" />
+    <meta name="description" content="Provides access to Australian weather forecasts, weather observations, flood warnings and high sea forecasts from each state and territory provided by the Bureau of Meteorology" />
+    <link rel="stylesheet" type="text/css" href="/css/core.css" />
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/css/core-ie.css" /><![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/css/weather/gfe.css" />
+    <script type="text/javascript" src="/scripts/utilities.js"></script>
+    <link rel="shortcut icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <ul id="jumplinks">
+    	<li><a href="#content" accesskey="2">Skip to main content</a></li>
+      <li><a href="#local-nav" accesskey="l">Skip to local navigation</a></li>
+
+    </ul>
+
+    <!-- Start: PageHeight -->
+    <div id="pageheight">
+
+      <!-- Start: Header -->
+      <div id="header">
+        <div id="masthead">
+          <img src="/images/ui/bannerprint.gif" class="bannerprint" height="1" width="1" alt="Print Background" />
+          <a id="logo" href="/index.shtml"><img src="/images/ui/bom_logo.gif" width="197" height="72" title="Australian Government - Bureau of Meteorology" alt="Australian Government - Bureau of Meteorology" /></a>
+
+          <ul class="strip-nav">
+            <li><a href="/" accesskey="1">Home</a></li
+            ><li><a href="/inside/index.shtml">About Us</a></li
+            ><li><a href="/inside/contacts.shtml">Contacts</a></li
+            ><li><a href="/careers/">Careers</a></li
+            ><li><a href="/help/">Help</a></li
+            ><li><a href="/other/feedback/">Feedback</a></li>
+          </ul>
+          <div id="searchbox">
+            <form action="http://agencysearch.australia.gov.au/search/search.cgi" method="get" class="searchform" enctype="application/x-www-form-urlencoded (default)">
+              <label for="query" class="search">Search:</label>
+
+              <input type="text" id="query" name="query" size="30" accesskey="4" value="" />
+              <input type="hidden" name="collection" value="agencies" />
+              <input type="hidden" name="form" value="simple" />
+              <input type="hidden" name="profile" value="bom" />
+              <input type="hidden" name="scope_disable" value="off" />
+              <input type="image" src="/images/search.gif" value="submit" name="Submit" alt="Search" class="search" />
+            </form>
+            <ul class="strip-nav">
+              <li><a href="/global/" title="Global Weather and Warnings Information">Global</a></li
+              ><li><a href="/australia/" title="National Weather and Warnings Information">Australia</a></li
+              ><li><acronym title="New South Wales"><a href="/nsw/" title="New South Wales Weather and Warnings">NSW</a></acronym></li
+              ><li><abbr title="Victoria"><a href="/vic/" title="Victorian Weather and Warnings">Vic.</a></abbr></li
+              ><li><acronym title="Queensland"><a href="/qld/" title="Queensland Weather and Warnings">Qld</a></acronym></li
+              ><li><acronym title="Western Australia"><a href="/wa/" title="Western Australian Weather and Warnings">WA</a></acronym></li
+              ><li><acronym title="South Australian Weather and Warnings"><a href="/sa/" title="South Australia Weather and Warnings">SA</a></acronym></li
+              ><li><abbr title="Tasmania"><a href="/tas/" title="Tasmanian Weather and Warnings">Tas.</a></abbr></li
+              ><li><acronym title="Australian Capital Territory"><a href="/act/" title="Australian Capital Territory Weather and Warnings">ACT</a></acronym></li
+              ><li><acronym title="Northern Territory"><a href="/nt/" title="Northern Territory Weather and Warnings">NT</a></acronym></li
+              ><li><acronym title="Antarctica"><a href="/ant/" title="Antarctic and Southern Ocean Weather">Ant.</a></acronym></li>
+
+            </ul>
+          </div>
+          <div class="clr"></div>
+        </div>
+        <div id="global-nav">
+          <ul class="strip-nav">
+            <li><a href="/weather/">Weather &amp; Warnings</a></li
+            ><li><a href="/climate/">Climate Information</a></li
+            ><li><a href="/water/">Water Information</a></li
+            ><li><a href="/weather/radar/">Radar</a></li
+            ><li><a href="/lam/">Learn About Meteorology</a></li>
+
+          </ul>
+        </div>
+      </div>
+      <!-- End: Header -->
+
+
+      <!-- Start: Columns -->
+      <div id="columns">
+
+<!-- Start: Container -->
+    <div id="container" class="two-column">
+
+<!-- Begin: Breadcrumb -->
+      <p id="breadcrumb"><a href="/index.shtml">Bureau Home</a> &gt; <a href="/weather/index.shtml">Weather and Warnings</a> &gt; <a href="/vic/index.shtml">Victoria</a> &gt; <a href="/vic/forecasts/index.shtml">Forecasts</a> &gt; <strong>Melbourne Metropolitan Area</strong></p>
+<!-- End: Breadcrumb -->
+
+      <h1>Melbourne Metropolitan Area</h1>
+<!-- Start: Content -->
+      <div id="content">
+
+<p class="warning"><a href="/vic/warnings/">View the current warnings for Victoria</a></p>
+<p class="date">Forecast issued at 4:20 pm EDT on Sunday 6 March 2011.</p><div class="day eve">
+<h2>Forecast for the rest of Sunday</h2>
+<div class="forecast">
+<dl>
+<dt>Summary</dt>
+
+<dd class="image"><img src="/images/symbols/large/clear.png" alt="" width="45" height="42"></dd>
+<dd class="summary">Clear.</dd>
+</dl>
+<h3>Metropolitan area</h3>
+<p>Clear. Winds north to northeasterly averaging 10 to 20 km/h.</p>
+<p class="clr"> </p>
+</div>
+</div><div class="day main">
+<h2>Monday 7 March</h2>
+<div class="forecast">
+<dl>
+<dt>Summary</dt>
+
+<dd class="image"><img src="/images/symbols/large/wind.png" alt="" width="45" height="42"></dd>
+<dd>Min <em class="min">17</em>
+</dd>
+<dd>Max <em class="max">30</em>
+</dd>
+<dd class="summary">Windy. Mostly sunny.</dd>
+</dl>
+<h3>Metropolitan area</h3>
+<p>Mostly sunny. Winds north to northeasterly averaging up to 35 km/h becoming northerly up to 40 km/h during the morning.</p>
+<p class="clr"> </p>
+
+</div>
+<p class="alert">Fire Danger -  High</p>
+<p class="alert">UV Alert from 10:10 am to 4:50 pm, UV Index predicted to reach 9 [Very High]</p>
+</div><div class="around"><table summary="">
+<caption>Around Melbourne</caption>
+<thead><tr>
+<th class="first">Location</th>
+<th title="Minimum Temperature">Min</th>
+<th title="Maximum Temperature">Max</th>
+</tr></thead>
+<tbody>
+
+<tr>
+<td scope="row" class="first"><a href="/vic/forecasts/melbourne.shtml" title="Melbourne Forecast">Melbourne</a></td>
+<td>17</td>
+<td>30</td>
+</tr>
+<tr>
+<td scope="row" class="first"><a href="/vic/forecasts/geelong.shtml" title="Geelong Forecast">Geelong</a></td>
+<td>15</td>
+<td>30</td>
+</tr>
+<tr>
+
+<td scope="row" class="first"><a href="/vic/forecasts/yarraglen.shtml" title="Yarra Glen Forecast">Yarra Glen</a></td>
+<td>14</td>
+<td>29</td>
+</tr>
+<tr>
+<td scope="row" class="first"><a href="/vic/forecasts/frankston.shtml" title="Frankston Forecast">Frankston</a></td>
+<td>16</td>
+<td>27</td>
+</tr>
+<tr>
+<td scope="row" class="first"><a href="/vic/forecasts/tullamarine.shtml" title="Tullamarine Forecast">Tullamarine</a></td>
+
+<td>15</td>
+<td>29</td>
+</tr>
+<tr>
+<td scope="row" class="first"><a href="/vic/forecasts/mountdandenong.shtml" title="Mount Dandenong Forecast">Mount Dandenong</a></td>
+<td>12</td>
+<td>23</td>
+</tr>
+<tr>
+<td scope="row" class="first"><a href="/vic/forecasts/laverton.shtml" title="Laverton Forecast">Laverton</a></td>
+<td>16</td>
+
+<td>30</td>
+</tr>
+<tr>
+<td scope="row" class="first"><a href="/vic/forecasts/scoresby.shtml" title="Scoresby Forecast">Scoresby</a></td>
+<td>15</td>
+<td>29</td>
+</tr>
+<tr>
+<td scope="row" class="first"><a href="/vic/forecasts/watsonia.shtml" title="Watsonia Forecast">Watsonia</a></td>
+<td>16</td>
+<td>29</td>
+
+</tr>
+</tbody>
+</table>
+</div><div class="day">
+<h2>Tuesday 8 March</h2>
+<div class="forecast">
+<dl>
+<dt>Summary</dt>
+<dd class="image"><img src="/images/symbols/large/rain.png" alt="" width="45" height="42"></dd>
+<dd>Min <em class="min">19</em>
+</dd>
+<dd>Max <em class="max">23</em>
+
+</dd>
+<dd class="summary">A little rain developing.</dd>
+</dl>
+<h3>Metropolitan area</h3>
+<p>Cloudy. Patchy rain developing during the morning. Winds northerly averaging up to 50 km/h.</p>
+<p class="clr"> </p>
+</div>
+</div><div class="day">
+<h2>Wednesday 9 March</h2>
+<div class="forecast">
+<dl>
+<dt>Summary</dt>
+
+<dd class="image"><img src="/images/symbols/large/rain.png" alt="" width="45" height="42"></dd>
+<dd>Min <em class="min">20</em>
+</dd>
+<dd>Max <em class="max">23</em>
+</dd>
+<dd class="summary">Rain at times.</dd>
+</dl>
+<h3>Metropolitan area</h3>
+<p>Cloudy. Areas of rain. Winds north to northwesterly averaging up to 25 km/h tending northeasterly up to 20 km/h by early evening.</p>
+<p class="clr"> </p>
+
+</div>
+</div><div class="day">
+<h2>Thursday 10 March</h2>
+<div class="forecast">
+<dl>
+<dt>Summary</dt>
+<dd class="image"><img src="/images/symbols/large/rain.png" alt="" width="45" height="42"></dd>
+<dd>Min <em class="min">17</em>
+</dd>
+<dd>Max <em class="max">21</em>
+</dd>
+
+<dd class="summary">Morning rain then showers.</dd>
+</dl>
+<h3>Metropolitan area</h3>
+<p>Cloudy. Rain, easing to isolated showers later in the day. Isolated thunderstorms possible during the morning. Winds northwesterly averaging up to 25 km/h tending southerly around midday.</p>
+<p class="clr"> </p>
+</div>
+</div><div class="day">
+<h2>Friday 11 March</h2>
+<div class="forecast">
+<dl>
+<dt>Summary</dt>
+
+<dd class="image"><img src="/images/symbols/large/partly-cloudy.png" alt="" width="45" height="42"></dd>
+<dd>Min <em class="min">15</em>
+</dd>
+<dd>Max <em class="max">25</em>
+</dd>
+<dd class="summary">Partly cloudy.</dd>
+</dl>
+<h3>Metropolitan area</h3>
+<p>Partly cloudy. Winds east to southeasterly averaging up to 30 km/h.</p>
+<p class="clr"> </p>
+
+</div>
+</div><div class="day">
+<h2>Saturday 12 March</h2>
+<div class="forecast">
+<dl>
+<dt>Summary</dt>
+<dd class="image"><img src="/images/symbols/large/partly-cloudy.png" alt="" width="45" height="42"></dd>
+<dd>Min <em class="min">14</em>
+</dd>
+<dd>Max <em class="max">26</em>
+</dd>
+
+<dd class="summary">Mostly sunny.</dd>
+</dl>
+<h3>Metropolitan area</h3>
+<p>Partly cloudy. Light winds.</p>
+<p class="clr"> </p>
+</div>
+</div><div class="day">
+<h2>Sunday 13 March</h2>
+<div class="forecast">
+<dl>
+<dt>Summary</dt>
+
+<dd class="image"><img src="/images/symbols/large/showers.png" alt="" width="45" height="42"></dd>
+<dd>Min <em class="min">16</em>
+</dd>
+<dd>Max <em class="max">23</em>
+</dd>
+<dd class="summary">Shower or two.</dd>
+</dl>
+<h3>Metropolitan area</h3>
+<p>Cloudy. Isolated showers. Winds south to southwesterly averaging up to 20 km/h tending south to southeasterly during the evening.</p>
+<p class="clr"> </p>
+
+</div>
+</div><p id="next" class="date">The next routine forecast will be issued at 5:00 am EDT Monday.</p><p class="p-id">Product derived from IDV10450</p>
+
+      </div>
+<!-- End: Content -->
+    </div>
+<!-- End: Container -->
+<!-- Begin: Left Column -->
+    <div id="left-column"><img src="/images/weather/vic.jpg" width="197" height="150" alt="" class="decoration" />
+<h3 class="leftmenu" id="local-nav"><a href="/weather/">Weather &amp; Warnings</a></h3>
+
+<ul class="leftmenu collapsingMenu">
+  <li><a href="/australia/index.shtml" title="National Weather &amp; Warnings">Australia</a>
+  	<ul>
+      <li><a href="/australia/warnings/index.shtml" title="National Warnings Summary">Warnings Summary</a></li>
+      <li><a href="/australia/external_territories.shtml" title="External Territories Forecasts">External Territories</a></li>
+      <li><a href="/australia/majorcities.shtml" title="Major Cities Forecasts &amp; Outlook">Major Cities</a></li>
+      <li><a href="/australia/charts/index.shtml" title="National Current and Forecast Charts">Weather Maps</a></li>
+
+      <li><a href="/australia/flood/index.shtml" title="National Flood Warnings, Rainfall &amp; River Conditions">Rainfall &amp; River Conditions</a></li>
+    </ul>
+  </li>
+  <li><a href="/nsw/index.shtml" title="New South Wales Weather &amp; Warnings">New South Wales</a>
+    <ul>
+      <li><a href="/nsw/warnings/index.shtml" title="New South Wales Warnings Summary">Warnings Summary</a></li>
+
+      <li><a href="/nsw/forecasts/index.shtml" title="New South Wales Forecasts">Forecasts</a></li>
+      <li><a href="/nsw/forecasts/sydney.shtml" title="Sydney Forecast">Sydney Forecast</a></li>
+      <li><a href="/nsw/forecasts/map.shtml" title="New South Wales Forecast Areas Map">NSW Forecast Areas Map</a></li>
+      <li><a href="/nsw/observations/index.shtml" title="New South Wales Weather Observations">Observations</a></li>
+      <li><a href="/nsw/observations/sydney.shtml" title="Latest Weather Observations for the Sydney Area">Sydney Observations</a></li>
+      <li><a href="/nsw/observations/nswall.shtml" title="Latest Weather Observations for New South Wales">All NSW Observations</a></li>
+
+      <li><a href="/nsw/flood/index.shtml" title="New South Wales Flood Warnings, Rainfall &amp; River Conditions">Rainfall &amp; River Conditions</a></li>
+    </ul>
+  </li>
+  <li><a href="/vic/index.shtml" title="Victorian Weather &amp; Warnings">Victoria</a>
+    <ul>
+      <li><a href="/vic/warnings/index.shtml" title="Victorian Warnings Summary">Warnings Summary</a></li>
+
+      <li><a href="/vic/forecasts/index.shtml" title="Victorian Forecasts">Forecasts</a></li>
+      <li><a href="/vic/forecasts/melbourne.shtml" title="Melbourne Metropolitan Forecast">Melbourne Metro Forecast</a></li>
+      <li><a href="/vic/forecasts/map.shtml" title="Victorian Forecast Areas Map">Vic. Forecast Areas Map</a></li>
+      <li><a href="/vic/observations/index.shtml" title="Victorian Weather Observations">Observations</a></li>
+      <li><a href="/vic/observations/melbourne.shtml" title="Latest Weather Observations for the Melbourne Area">Melbourne Observations</a></li>
+      <li><a href="/vic/observations/vicall.shtml" title="Latest Weather Observations for Victoria">All Victorian Observations</a></li>
+
+      <li><a href="/vic/flood/index.shtml" title="Victoria Flood Warnings, Rainfall &amp; River Conditions">Rainfall &amp; River Conditions</a></li>
+    </ul>
+  </li>
+  <li><a href="/qld/index.shtml" title="Queensland Weather &amp; Warnings">Queensland</a>
+    <ul>
+      <li><a href="/qld/warnings/index.shtml" title="Queensland Warnings Summary">Warnings Summary</a></li>
+
+      <li><a href="/qld/forecasts/index.shtml" title="Queensland Forecasts">Forecasts</a></li>
+      <li><a href="/qld/forecasts/brisbane.shtml" title="Brisbane Forecast">Brisbane Forecast</a></li>
+      <li><a href="/qld/forecasts/map.shtml" title="Queensland Forecast Areas Map">Qld. Forecast Areas Map</a></li>
+      <li><a href="/qld/observations/index.shtml" title="Queensland Weather Observations">Observations</a></li>
+      <li><a href="/qld/observations/brisbane.shtml" title="Latest Weather Observations for the Brisbane Area">Brisbane Observations</a></li>
+      <li><a href="/qld/observations/qldall.shtml" title="Latest Weather Observations for Queensland">All Queensland Observations</a></li>
+
+      <li><a href="/qld/flood/index.shtml" title="Queensland Flood Warnings, Rainfall &amp; River Conditions">Rainfall &amp; River Conditions</a></li>
+    </ul>
+  </li>
+  <li><a href="/wa/index.shtml" title="Western Australian Weather &amp; Warnings">Western Australia</a>
+    <ul>
+      <li><a href="/wa/warnings/index.shtml" title="Western Australian Warnings Summary">Warnings Summary</a></li>
+
+      <li><a href="/wa/forecasts/index.shtml" title="Western Australian Forecasts">Forecasts</a></li>
+      <li><a href="/wa/forecasts/perth.shtml" title="Perth Forecast">Perth Forecast</a></li>
+      <li><a href="/wa/forecasts/map.shtml" title="Western Australian Forecast Areas Map">WA Forecast Areas Map</a></li>
+      <li><a href="/wa/observations/index.shtml" title="Western Australian Weather Observations">Observations</a></li>
+      <li><a href="/wa/observations/perth.shtml" title="Latest Weather Observations for the Perth Area">Perth Observations</a></li>
+      <li><a href="/wa/observations/waall.shtml" title="Latest Weather Observations for Western Australia">All WA Observations</a></li>
+
+      <li><a href="/wa/flood/index.shtml" title="Western Australia Flood Warnings, Rainfall &amp; River Conditions">Rainfall &amp; River Conditions</a></li>
+    </ul>
+  </li>
+  <li><a href="/sa/index.shtml" title="South Australian Weather &amp; Warnings">South Australia</a>
+    <ul>
+      <li><a href="/sa/warnings/index.shtml" title="South Australian Warnings Summary">Warnings Summary</a></li>
+
+      <li><a href="/sa/forecasts/index.shtml" title="South Australian Forecasts">Forecasts</a></li>
+      <li><a href="/sa/forecasts/adelaide.shtml" title="Adelaide Forecast">Adelaide Forecast</a></li>
+      <li><a href="/sa/forecasts/map.shtml" title="South Australian Forecast Areas Map">SA Forecast Areas Map</a></li>
+      <li><a href="/sa/observations/index.shtml" title="South Australian Weather Observations">Observations</a></li>
+      <li><a href="/sa/observations/adelaide.shtml" title="Latest Weather Observations for the Adelaide Area">Adelaide Observations</a></li>
+      <li><a href="/sa/observations/saall.shtml" title="Latest Weather Observations for South Australia">All SA Observations</a></li>
+
+      <li><a href="/sa/flood/index.shtml" title="South Australia Flood Warnings, Rainfall &amp; River Conditions">Rainfall &amp; River Conditions</a></li>
+    </ul>
+  </li>
+  <li><a href="/tas/index.shtml" title="Tasmanian Weather &amp; Warnings">Tasmania</a>
+    <ul>
+      <li><a href="/tas/warnings/index.shtml" title="Tasmanian Warnings Summary">Warnings Summary</a></li>
+
+      <li><a href="/tas/forecasts/index.shtml" title="Tasmanian Forecasts">Forecasts</a></li>
+      <li><a href="/tas/forecasts/hobart.shtml" title="Hobart Forecast">Hobart Forecast</a></li>
+      <li><a href="/tas/forecasts/map.shtml" title="Tasmanian Forecast Areas Map">Tas. Forecast Areas Map</a></li>
+      <li><a href="/tas/observations/index.shtml" title="Tasmanian Weather Observations">Observations</a></li>
+      <li><a href="/tas/observations/hobart.shtml" title="Latest Weather Observations for the Hobart Area">Hobart Observations</a></li>
+      <li><a href="/tas/observations/tasall.shtml" title="Latest Weather Observations for Tasmania">All Tasmanian Observations</a></li>
+
+      <li><a href="/tas/flood/index.shtml" title="Tasmania Flood Warnings, Rainfall &amp; River Conditions">Rainfall &amp; River Conditions</a></li>
+    </ul>
+  </li>
+  <li><a href="/act/index.shtml" title="Australian Capital Territory Weather &amp; Warnings">Australian Capital Territory</a>
+    <ul>
+      <li><a href="/act/warnings/index.shtml" title="Australian Capital Territory Warnings Summary">Warnings Summary</a></li>
+
+      <li><a href="/act/forecasts/index.shtml" title="Australian Capital Territory Forecasts">Forecasts</a></li>
+      <li><a href="/act/forecasts/canberra.shtml" title="Canberra Forecast">Canberra Forecast</a></li>
+      <li><a href="/act/forecasts/act.shtml" title="Australian Capital Territory Forecast">ACT Forecast</a></li>
+      <li><a href="/act/observations/index.shtml" title="Australian Capital Territory Weather Observations">Observations</a></li>
+      <li><a href="/act/observations/canberra.shtml" title="Latest Weather Observations for the Canberra Area">Canberra Observations</a></li>
+    </ul>
+
+  </li>
+  <li><a href="/nt/index.shtml" title="Northern Territory Weather &amp; Warnings">Northern Territory</a>
+    <ul>
+      <li><a href="/nt/warnings/index.shtml" title="Northern Territory Warnings Summary">Warnings Summary</a></li>
+      <li><a href="/nt/forecasts/index.shtml" title="Northern Territory Forecasts">Forecasts</a></li>
+      <li><a href="/nt/forecasts/darwin.shtml" title="Darwin and Rural Forecast Forecast">Darwin and Rural Forecast</a></li>
+      <li><a href="/nt/forecasts/map.shtml" title="Northern Territory Forecast Areas Map">NT Forecast Areas Map</a></li>
+
+      <li><a href="/nt/observations/index.shtml" title="Northern Territory Weather Observations">Observations</a></li>
+      <li><a href="/nt/observations/darwin.shtml" title="Latest Weather Observations for the Darwin Area">Darwin Observations</a></li>
+      <li><a href="/nt/observations/ntall.shtml" title="Latest Weather Observations for Northern Territory">All NT Observations</a></li>
+      <li><a href="/nt/flood/index.shtml" title="Northern Territory Flood Warnings, Rainfall &amp; River Conditions">Rainfall &amp; River Conditions</a></li>
+    </ul>
+  </li>
+
+  <li><a href="/ant/index.shtml" title="Antarctic and Southern Ocean Weather">Antarctic</a></li>
+  <li><a href="/global/index.shtml" title="Global Weather &amp; Warnings">Global</a></li>
+</ul>
+
+<h3 class="leftmenu"><a href="/weather-services/">National Weather Services</a></h3>
+<ul class="leftmenu">
+  <li><a href="/weather/radar/">Radar Viewer</a></li>
+  <li><a href="/cyclone/">Tropical Cyclones</a></li>
+
+  <li><a href="/tsunami/">Tsunami Warnings</a></li>
+<!--  <li><a href="/hydro/flood/">Flood Warnings</a></li>
+-->  <li><a href="/australia/charts/">Weather Maps</a></li>
+  <li><a href="/satellite/">Satellite Images</a></li>
+  <li><a href="/watl/">Agriculture</a></li>
+  <li><a href="/marine/">Marine</a></li>
+  <li><a href="/uv/">UV Protection</a></li>
+
+</ul>
+
+</div>
+<!-- End: Left Column -->
+
+<div class="clr"><!-- clear columns --></div>
+</div>
+<!-- End: Columns -->
+</div>
+<!-- End: PageHeight -->
+
+<!-- Start: Footer -->
+<div id="footer">
+  <ul class="strip-nav">
+    <li><a href="/">Home</a></li>
+
+    <li><a href="/inside/index.shtml">About Us</a></li>
+    <li><a href="/inside/contacts.shtml">Contacts</a></li>
+    <li><a href="/careers/">Careers</a></li>
+    <li><a href="http://agencysearch.australia.gov.au/search/search.cgi?collection=agencies&amp;profile=bom&amp;form=simple">Search</a></li>
+    <li><a href="/site-map/" class="navlink">Site Map</a></li>
+    <li><a href="/help/">Help</a></li>
+
+    <li><a href="/other/feedback/">Feedback</a></li>
+  </ul>
+  <ul class="strip-nav">
+    <li><a href="/weather/">Weather &amp; Warnings</a></li>
+    <li><a href="/climate/">Climate Information</a></li>
+    <li><a href="/water/">Water Information</a></li>
+
+    <li><a href="/weather/radar/">Radar</a></li>
+    <li><a href="/rss/" class="navlink">RSS</a></li>
+    <li><a href="/lam/">Learn About Meteorology</a></li>
+  </ul>
+  <hr />
+  <p id="timestamp">This page was created at <strong>11:16 on Sunday  6 March 2011 (GMT)</strong></p>
+
+  <p id="copyright">&#169; <a href="/other/copyright.shtml">Copyright</a> Commonwealth of Australia 2011, Bureau of Meteorology (ABN 92 637 533 532)</p>
+  <p>Please note the <a href="/other/copyright.shtml">Copyright Notice</a> and <a href="/other/disclaimer.shtml">Disclaimer</a> statements relating to the use of the information on this site and our site <a href="/other/privacy.shtml">Privacy</a> and <a href="/other/accessibility.shtml">Accessibility</a> statements. Users of these web pages are deemed to have read and accepted the conditions described in the Copyright, Disclaimer, and Privacy statements. Please also note the <a href="/other/copyright.shtml#acknowledgements">Acknowledgement</a> notice relating to the use of information on this site. No unsolicited commercial email.</p>
+
+</div>
+<!-- End: Footer -->
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  var hostname = window.location.hostname;
+  var host = hostname.split(".");
+  if (host[0] == "reg")
+  {
+    document.write("<!--No Analytics Yet -->");
+  }
+  else if (host[0] == "www")
+  {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-3816559-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  }
+  else if (host[0] == "wdev")
+  {
+    document.write("<!--No Analytics Yet -->");
+  }
+</script>
+
+  </body>
+</html>
