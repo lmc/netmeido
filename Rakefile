@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Cal2::Application.load_tasks
+Netmeido::Application.load_tasks

@@ -9,7 +9,7 @@ require 'active_resource/railtie'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
-module Cal2
+module Netmeido
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -46,7 +46,6 @@ module Cal2
       generator.orm                 :mongoid
       generator.template_engine     :haml
       generator.test_framework      :rspec, :fixture => true, :views => false
-      generator.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
   end
 end

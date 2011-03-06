@@ -60,21 +60,28 @@ $.fn.upload_manager = function(options){
     },
     uploadFinished: function(_index,file,json,time_taken){
       finish_upload_for(file,json);
-      next_file_index++;
-      if(next_file_index < queue.length){
-        start_upload_for(next_file_index);
-      }else{
-        window.location = "/assets?ids="+uploaded_ids.join(',');
-      }
+      start_next_upload();
     }
   });
+  
+  var start_next_upload = function(){
+    next_file_index++;
+    if(next_file_index < queue.length){
+      start_upload_for(next_file_index);
+    }else{
+      window.location = "/assets?ids="+uploaded_ids.join(',');
+    }
+  };
   
   var start_upload_for = function(queue_offset){
     var file = queue[queue_offset];
     if(file.type == 'application/x-remote-file'){
       var params = file_remote_options.paramname+'='+file.remote_url;
       $.ajax({type: 'POST', url: file_remote_options.url, data: params,
-        success: function(json){ finish_upload_for(file,json); }
+        success: function(json){
+          finish_upload_for(file,json);
+          start_next_upload();
+        }
       });
     }else{
       filedrop.upload_file(queue[queue_offset]);

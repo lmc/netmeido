@@ -8,11 +8,11 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: cal2_development
+  database: netmeido_development
 
 test:
   <<: *defaults
-  database: cal2_test
+  database: netmeido_test
 
 # set these environment variables on your prod server
 production:
