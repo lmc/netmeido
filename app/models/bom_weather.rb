@@ -1,4 +1,6 @@
 class BomWeather
+  include WebScraper
+  
   TIMEOUT = 10.0
   FORECAST_URL = "http://www.bom.gov.au/vic/forecasts/melbourne.shtml"
   DAYS_REGEX = /Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday/
@@ -42,16 +44,10 @@ class BomWeather
       self.forecast_days[day_name][:summary] = day.search('dd.summary').inner_text
       self.forecast_days[day_name][:full]    = day.search('h3 + p').inner_text
       
-      alerts = page.search('p.alert')
+      alerts = day.search('p.alert')
       if alerts.size > 0
         self.forecast_days[day_name][:alerts] = alerts.map(&:inner_text)
       end
-    end
-  end
-  
-  def self.web_client
-    Mechanize.new do |agent|
-      
     end
   end
   

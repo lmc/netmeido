@@ -1,8 +1,11 @@
 class TimeCapsule < SnmpClient
+  
   INTERFACES = {
     5 => "wifi",
     6 => "wan"
   } #Maybe!!
+  
+  POLL_EVERY = 15.seconds
   
   attr_accessor :interface_stats
   
@@ -32,6 +35,24 @@ class TimeCapsule < SnmpClient
     end
     
     self.interface_stats
+  end
+  
+  def create_interface_stats!
+    self.interface_stats.each_pair do |index,interface|
+      TimeCapsuleInterface.create!(:interface => interface[:name], :up => interface[:up],
+        :bytes_in => interface[:in], :bytes_out => interface[:out],
+        :errors_in => interface[:errors_in], :errors_out => interface[:errors_out])
+    end
+  end
+  
+  def self.poll(ip)
+    loop do
+      instance = new(ip)
+      instance.fetch!
+      instance.parse!
+      instance.create_interface_stats!
+      sleep(POLL_EVERY)
+    end
   end
   
 end

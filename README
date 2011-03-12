@@ -1,5 +1,9 @@
+Next:
+  Database-backing for router interfaces data (collect every 15 seconds)
+  Graphing
+
 To monitor:
-  Router interfaces (in/out/total)
+  !Router interfaces (in/out/total)
   Telstra's metering
   Phone bill/usage
   ??? Phone battery/space (ssh hourly?)
@@ -11,4 +15,5 @@ To monitor:
   Devices:
     Bandwidth usage
     Storage usage
-    Whatpulse stats
+    ???Whatpulse stats
+    ???Steam stats
