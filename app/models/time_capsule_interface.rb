@@ -53,13 +53,14 @@ class TimeCapsuleInterface
   def calculate_deltas
     return unless last_interface_entry
     self.class.delta_target_array.each do |field,delta_field|
-      self[delta_field] = calculate_delta_with_overflow_check(self[field],last_interface_entry[field])
+      self[delta_field] = calculate_delta_with_overflow_check(self[field],last_interface_entry[field],self.created_at,last_interface_entry.created_at)
     end
   end
   
   #FIXME: handle overflow checking
-  def calculate_delta_with_overflow_check(current,last)
-    current - last
+  def calculate_delta_with_overflow_check(current_data,last_data,current_time,last_time)
+    seconds = current_time.to_i - last_time.to_i
+    (current_data - last_data) / seconds
   end
   
   #[ { label: "Foo", data: [ [10, 1], [17, -14], [30, 5] ] }, { ... } ]
