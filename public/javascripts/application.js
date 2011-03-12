@@ -3,12 +3,14 @@ $(document).ready(function(){
 
     xaxis: {
       mode: "time",
-      timeformat: "%H:%M:%S"
+      timeformat: "%H:%M:%S",
+      tickSize: [1, "minute"]
     },
     
     yaxis: {
+      tickSize: 102.4*1024,
       tickFormatter: function(value,axis){
-        return bytesToSize(value);
+        return bytesToSize(value,2);
       }
     }
     
