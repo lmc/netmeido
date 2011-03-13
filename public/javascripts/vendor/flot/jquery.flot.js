@@ -1730,7 +1730,7 @@
                 if (i % options.legend.noColumns == 0) {
                     if (rowStarted)
                         fragments.push('</tr>');
-                    fragments.push('<tr>');
+                    fragments.push('<tr class="'+(s.lines.show ? '' : 'disabled')+'">');
                     rowStarted = true;
                 }
 

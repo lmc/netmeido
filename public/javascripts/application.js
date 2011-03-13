@@ -12,6 +12,10 @@ $(document).ready(function(){
       tickFormatter: function(value,axis){
         return bytesToSize(value,2);
       }
+    },
+    
+    legend: {
+      hideable: true
     }
     
   });

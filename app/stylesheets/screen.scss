@@ -31,5 +31,10 @@
     table {
       width: 150px;
     }
+    
+    tr.disabled {
+      color: #888;
+      text-decoration: line-through;
+    }
   }
 }
