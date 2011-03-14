@@ -46,6 +46,11 @@ class TimeCapsule < SnmpClient
   end
   
   def self.poll(ip)
+    #FIXME: Handle these errors
+    #sh: fork: Resource temporarily unavailable
+    #Errno::EAGAIN: Resource temporarily unavailable - snmpwalk -c public 192.168.0.2 2>&1
+    #  from /Users/luke/.rvm/gems/ruby-1.9.2-tv1_9_2_0/gems/activesupport-3.0.3/lib/active_support/core_ext/kernel/agnostics.rb:7:in ``'
+    
     loop do
       instance = new(ip)
       instance.fetch!

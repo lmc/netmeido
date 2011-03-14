@@ -22,6 +22,7 @@ class TimeCapsuleInterface
   
   DELTA_TARGET_FIELDS = %w(bytes_in bytes_out errors_in errors_out)
   INTERFACES = %w(mgi0 mgi1 mv0 mv1 lo0 wlan0 wlan1 bridge0)
+  OVERFLOW_AT = (2 ** 32) - 1
   
   def self.delta_target_array
     DELTA_TARGET_FIELDS.map { |field| [field,"#{field}_dx"] }
@@ -52,15 +53,26 @@ class TimeCapsuleInterface
   
   def calculate_deltas
     return unless last_interface_entry
+    #FIXME: Put a sanity limit on the maximum time allowed between self and last_interface_entry
+    #something like POLLING_TIME * 2, after that, don't calculate deltas, so the next entry will have a more sensible delta calculation
     self.class.delta_target_array.each do |field,delta_field|
       self[delta_field] = calculate_delta_with_overflow_check(self[field],last_interface_entry[field],self.created_at,last_interface_entry.created_at)
     end
   end
   
-  #FIXME: handle overflow checking
   def calculate_delta_with_overflow_check(current_data,last_data,current_time,last_time)
+    return nil if [current_data,last_data,current_time,last_time].any?(&:nil?)
+    
+    delta = if current_data < last_data #we've probably overflown then
+      current_data + (OVERFLOW_AT - last_data)
+    else
+      current_time - last_data
+    end
+    
     seconds = current_time.to_i - last_time.to_i
-    (current_data - last_data) / seconds
+    seconds = 1 if seconds == 0 #hah, oh well
+    
+    delta / seconds
   end
   
   #[ { label: "Foo", data: [ [10, 1], [17, -14], [30, 5] ] }, { ... } ]
