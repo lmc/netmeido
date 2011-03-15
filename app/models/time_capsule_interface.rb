@@ -66,7 +66,7 @@ class TimeCapsuleInterface
     delta = if current_data < last_data #we've probably overflown then
       current_data + (OVERFLOW_AT - last_data)
     else
-      current_time - last_data
+      current_data - last_data
     end
     
     seconds = current_time.to_i - last_time.to_i
