@@ -1,5 +1,15 @@
 class TimeCapsuleInterface
   include Mongoid::Document
+  include Archiving
+  
+  
+  DELTA_TARGET_FIELDS = %w(bytes_in bytes_out errors_in errors_out)
+  INTERFACES = %w(mgi0 mgi1 mv0 mv1 lo0 wlan0 wlan1 bridge0)
+  OVERFLOW_AT = (2 ** 32) - 1
+  
+  
+  before_save :calculate_deltas
+  
   
   field :created_at,    :type => DateTime, :default => proc { Time.now }
   field :interface,     :type => String
@@ -15,14 +25,9 @@ class TimeCapsuleInterface
   field :errors_in_dx,  :type => Integer
   field :errors_out_dx, :type => Integer
   
-  index :created_at, Mongo::DESCENDING
-  index :interface
+  index 'created_at'#, Mongo::DESCENDING
+  index 'interface'
   
-  before_save :calculate_deltas
-  
-  DELTA_TARGET_FIELDS = %w(bytes_in bytes_out errors_in errors_out)
-  INTERFACES = %w(mgi0 mgi1 mv0 mv1 lo0 wlan0 wlan1 bridge0)
-  OVERFLOW_AT = (2 ** 32) - 1
   
   def self.delta_target_array
     DELTA_TARGET_FIELDS.map { |field| [field,"#{field}_dx"] }
@@ -92,21 +97,5 @@ class TimeCapsuleInterface
     
     flot_data.to_json
   end
-end
 
-class TimeCapsuleInterface::SearchOptions < OpenStruct
-  
-  def initialize(params)
-    params.reverse_merge!(
-      :created_at_gt => 15.minutes.ago,
-      :created_at_lt => Time.now,
-      :interfaces    => :all
-    )
-    super(params)
-  end
-  
-  def [](key)
-    send(key)
-  end
-  
 end
