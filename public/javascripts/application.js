@@ -1,23 +1,28 @@
 $(document).ready(function(){
-  $.plot($('#time_capsule_interfaces_graph'),format_flot_data_datetimes(time_capsule_interfaces_data),{
+  $('.time_capsule_interface_graph').each(function(){
+    var tci_interface = $(this).data('interface');
+    var interface_data = filter_interfaces_flot_data(time_capsule_interfaces_data,tci_interface);
+    
+    $.plot($(this),format_flot_data_datetimes(interface_data),{
 
-    xaxis: {
-      mode: "time",
-      timeformat: "%H:%M:%S",
-      tickSize: [1, "minute"]
-    },
-    
-    yaxis: {
-      tickSize: 102.4*1024,
-      tickFormatter: function(value,axis){
-        return bytesToSize(value,2);
+      xaxis: {
+        mode: "time",
+        timeformat: "%H:%M:%S",
+        tickSize: [1, "minute"]
+      },
+
+      yaxis: {
+        tickSize: 1024*1024,
+        tickFormatter: function(value,axis){
+          return bytesToSize(value,2);
+        }
+      },
+
+      legend: {
+        hideable: true
       }
-    },
-    
-    legend: {
-      hideable: true
-    }
-    
+
+    });
   });
 });
 
@@ -30,6 +35,10 @@ function format_flot_data_datetimes(data){
     })
   });
   return data;
+}
+
+function filter_interfaces_flot_data(data,interface){
+  return data.select(function(series){ return !!series.label.match(interface); })
 }
 
 

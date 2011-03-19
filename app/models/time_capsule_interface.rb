@@ -38,6 +38,8 @@ class TimeCapsuleInterface
       INTERFACES
     elsif param.is_a?(Array)
       param
+    elsif INTERFACES.include?(param.to_s)
+      [param.to_s]
     else
       raise "bad search_interface argument", ArgumentError
     end
@@ -81,7 +83,11 @@ class TimeCapsuleInterface
   end
   
   #[ { label: "Foo", data: [ [10, 1], [17, -14], [30, 5] ] }, { ... } ]
-  def self.to_json_flot(dataset)
+  def self.to_json_flot(dataset,options = {})
+    options.reverse_merge!(:interfaces => :all)
+    interfaces = self.search_interfaces(options[:interfaces])
+    dataset = dataset.select { |tci| interfaces.include?(tci.interface) }
+    
     attributes = %w(bytes_in_dx bytes_out_dx)
     flot_data = Hash.new { |hash,key| hash[key] = [] }
     

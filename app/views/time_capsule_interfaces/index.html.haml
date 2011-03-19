@@ -1,5 +1,6 @@
 #time_capsule_interfaces
-  #time_capsule_interfaces_graph
+  - TimeCapsuleInterface::INTERFACES.each do |interface|
+    .time_capsule_interface_graph{:data => {:interface => interface}}
   
 = javascript_tag do
   == var time_capsule_interfaces_data = #{TimeCapsuleInterface.to_json_flot(@data).html_safe}
