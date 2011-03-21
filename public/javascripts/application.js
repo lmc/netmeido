@@ -4,25 +4,51 @@ $(document).ready(function(){
     var interface_data = filter_interfaces_flot_data(time_capsule_interfaces_data,tci_interface);
     
     $.plot($(this),format_flot_data_datetimes(interface_data),{
-
+      
       xaxis: {
         mode: "time",
         timeformat: "%H:%M:%S",
         tickSize: [1, "minute"]
       },
-
+      
       yaxis: {
         tickSize: 1024*1024,
         tickFormatter: function(value,axis){
           return bytesToSize(value,2);
         }
       },
-
+      
       legend: {
         hideable: true
       }
-
+      
     });
+    
+    
+    var archive_data = filter_interfaces_flot_data(time_capsule_interfaces_archive_data,tci_interface);
+    //console.log($(this).parent());
+    //console.log($(this).parent().find('.time_capsule_interface_archive_graph'));
+    
+    $.plot($(this).parent().find('.time_capsule_interface_archive_graph'),format_flot_data_datetimes(archive_data),{
+      
+      legend: {
+        show: false
+      },
+      
+      xaxis: {
+        mode: "time",
+        timeformat: "%H:%M:%S"
+      },
+      
+      series: {
+        lines: {
+          show: true,
+          lineWidth: 1
+        }
+      }
+      
+    });
+    
   });
 });
 

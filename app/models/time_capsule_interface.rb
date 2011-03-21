@@ -84,7 +84,10 @@ class TimeCapsuleInterface
   
   #[ { label: "Foo", data: [ [10, 1], [17, -14], [30, 5] ] }, { ... } ]
   def self.to_json_flot(dataset,options = {})
-    options.reverse_merge!(:interfaces => :all)
+    options.reverse_merge!(
+      :interfaces     => :all,
+      :time_attribute => :created_at
+    )
     interfaces = self.search_interfaces(options[:interfaces])
     dataset = dataset.select { |tci| interfaces.include?(tci.interface) }
     
@@ -93,7 +96,7 @@ class TimeCapsuleInterface
     
     dataset.each do |data|
       attributes.each do |attribute|
-        flot_data["#{data.interface}_#{attribute}"] << [data.created_at.to_i,data[attribute]]
+        flot_data["#{data.interface}_#{attribute}"] << [data.send(options[:time_attribute]).to_i,data[attribute]]
       end
     end
     

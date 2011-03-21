@@ -1,10 +1,10 @@
-class TimeCapsuleInterface::SearchOptions < OpenStruct
+class TimeCapsuleInterface::ArchiveSearchOptions < OpenStruct
   include OpenStructExtensions
   
   def initialize(params)
     params.reverse_merge!(
-      :created_at_gt => 15.minutes.ago,
-      :created_at_lt => Time.now,
+      :period_start_gt => 1.days.ago,
+      :period_start_lt => Time.now,
       :interfaces    => :all
     )
     super(params)
