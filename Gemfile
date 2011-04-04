@@ -14,8 +14,8 @@ gem 'juggernaut'
 # Models
 gem 'validation_reflection'
 #gem 'nestful' #not used yet
-gem 'delayed_job'
-gem 'delayed_job_mongoid'
+#gem 'delayed_job'
+#gem 'delayed_job_mongoid'
 gem "mechanize"
 
 # Views and templating

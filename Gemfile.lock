@@ -36,13 +36,6 @@ GEM
     columnize (0.3.2)
     compass (0.10.6)
       haml (>= 3.0.4)
-    daemons (1.1.0)
-    delayed_job (2.1.2)
-      activesupport (~> 3.0)
-      daemons
-    delayed_job_mongoid (1.0.1)
-      delayed_job (~> 2.1.1)
-      mongoid (~> 2.0)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -133,8 +126,6 @@ PLATFORMS
 DEPENDENCIES
   bson_ext (= 1.1.5)
   compass (>= 0.10.6)
-  delayed_job
-  delayed_job_mongoid
   formtastic
   haml
   inherited_resources (= 1.1.2)
