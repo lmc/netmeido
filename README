@@ -1,5 +1,8 @@
 Next:
-  Database-backing for router interfaces data (collect every 15 seconds)
+  !! Database-backing for router interfaces data (collect every 15 seconds)
+    Daemons for continuous recording
+    Daemon or scheduled task for aggregating data
+    Auto-refresh graphs
   Graphing
 
 To monitor:

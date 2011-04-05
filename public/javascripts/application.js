@@ -1,4 +1,14 @@
 $(document).ready(function(){
+  reload_graphs(time_capsule_interfaces_data,time_capsule_interfaces_archive_data);
+  
+  setInterval(function(){
+    $.get('/time_capsule_interfaces.json',{},function(data){
+      reload_graphs($.parseJSON(data.data),$.parseJSON(data.archive_data));
+    });
+  },10000);
+});
+
+var reload_graphs = function(time_capsule_interfaces_data,time_capsule_interfaces_archive_data){
   $('.time_capsule_interface_graph').each(function(){
     var tci_interface = $(this).data('interface');
     var interface_data = filter_interfaces_flot_data(time_capsule_interfaces_data,tci_interface);
@@ -26,8 +36,6 @@ $(document).ready(function(){
     
     
     var archive_data = filter_interfaces_flot_data(time_capsule_interfaces_archive_data,tci_interface);
-    //console.log($(this).parent());
-    //console.log($(this).parent().find('.time_capsule_interface_archive_graph'));
     
     $.plot($(this).parent().find('.time_capsule_interface_archive_graph'),format_flot_data_datetimes(archive_data),{
       
@@ -50,7 +58,7 @@ $(document).ready(function(){
     });
     
   });
-});
+};
 
 
 function format_flot_data_datetimes(data){

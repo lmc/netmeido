@@ -4,8 +4,9 @@ class TimeCapsule < SnmpClient
     5 => "wifi",
     6 => "wan"
   } #Maybe!!
+  #mv1 = wan?
   
-  POLL_EVERY = 15.seconds
+  POLL_EVERY = 5.seconds
   
   attr_accessor :interface_stats
   
